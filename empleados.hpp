@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
-#include <memory>
-#include <vector>
-#include <set>
+
 using namespace std;
 
 
@@ -11,7 +9,7 @@ class Empleado{
         string nombre;
         string puesto;
 
-        Empleado(string nombre, string puesto);
+        Empleado(string nombre, string puesto, int antiguedad =0, float salario =0);
 
         //agregados setters
         void setAntiguedad(int antiguedad);
@@ -32,28 +30,31 @@ class Manager: public Empleado{
         float bono;
         string level;
     public:
-        Manager(string nombre, string puesto);
-        bool updateBono(float update);
-        float getBono();
+        Manager(string nombre, string puesto, int antiguedad =0, float salario =0);
+        bool updateBono(float new_bono);
         bool setLevel(string level);
+        float getBono();
+        
+        //agrego
+        string getLevel();
 };
 
 class GerenteBajo : public Manager{
     public:
-        GerenteBajo();
+        GerenteBajo(string nombre, string puesto, int antiguedad =0, float salario =0);
 };
 
 class GerenteMedio : public Manager{
     public:
-        GerenteMedio();
+        GerenteMedio(string nombre, string puesto, int antiguedad =0, float salario =0);
 };
 
 class GerenteAlto : public Manager{
     public:
-        GerenteAlto();
+        GerenteAlto(string nombre, string puesto, int antiguedad =0, float salario =0);
 };
 
 class LiderEquipo : public Manager{
     public:
-        LiderEquipo();
+        LiderEquipo(string nombre, string puesto, int antiguedad =0, float salario =0);
 };

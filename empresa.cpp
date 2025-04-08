@@ -1,3 +1,6 @@
+#include "empleados.hpp"
+#include "empresa.hpp"
+
 /*
 #include "clases.hpp"
 
@@ -16,3 +19,13 @@ int EntidadOrganizativa::contarSubentidades(){
 }
 
 */
+
+Departamento::Departamento(string nombre, string ubicacion){
+    this->nombre = nombre;
+    this->ubicacion = ubicacion;
+}
+
+bool Departamento::contratarEmpleado(Empleado obj_empleado){
+
+}
+bool contratarEmpleado(Empleado obj_empleado)
