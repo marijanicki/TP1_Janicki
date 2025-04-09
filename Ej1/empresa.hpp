@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <array>
 #include <set>
 
 using namespace std;
@@ -14,19 +15,27 @@ class EntidadOrganizativa{
         EntidadOrganizativa();
         EntidadOrganizativa(string nombre); //constructor
 
-        virtual void agregarSubentidad(shared_ptr<EntidadOrganizativa> data_subentidad);
+        virtual void agregarSubentidad(shared_ptr<Empresa> data_subentidad); //<EntidadesOrganizativas> le crei a Mariano y use empresa nomas
         virtual int contarSubentidades();
     
         private:
-            vector<EntidadOrganizativa> subentidades;
+            vector<Empresa> subentidades;
         
 };
 
 class Empresa : public EntidadOrganizativa{
     public:
+        string nombre; //agregue yo
         string direccion;
+        Empresa(string direccion);
+        
         Departamento getDepByName(string name);
         vector<Departamento> getDepNames();
+
+        //agrego
+        void setDepartamentos(Departamento new_departamento);
+    private:
+        vector<Departamento> departamentos;
 };
 
 
@@ -37,13 +46,20 @@ class CentralRegional: public EntidadOrganizativa{
         set<string> paises;
         int getCantEmpleados();
         vector<string> getEmpNames();
-        vector<GerenteAlto> getGerentesAlto();//preg como definir el size del vector
-        vector<GerenteMedio> getGerentesMedio();
+        array<GerenteAlto,5> getGerentesAlto();
+        array<GerenteMedio, 20> getGerentesMedio();
 
+        //agrego
+        void appendPais(string pais);
+        void setCantEmpleados(int cantEmpleados);
+
+        //IDEA: HACER VARIABLES QUE CUENTEN LA CANT DE GERENTES DE CADA TIPO
+        //HASTA EL MOMENTO ASI VERIFICO CUANDO LLEGO AL LIMITE, SI TENGO MAS 
+        //DE LO QUE PUEDO ME TIRA ERROR
     private:
         int cantEmpleados;
-        vector<GerenteAlto> gerentesAlto();//preg
-        vector<GerenteMedio> gerentesMedio();
+        array<GerenteAlto,5> gerentesAlto();
+        array<GerenteMedio,20> gerentesMedio();
         set<Empresa> empresas;
 };
 
@@ -64,5 +80,6 @@ class Departamento{
     private:
         vector<Empleado> empleados;
         static int cantEmpleadosDepts;
-        Empleado Empleado;
+        //Empleado Empleado; la composicion es por pasar el objeto y tenerlo 
+        //en el vector
 };
