@@ -56,6 +56,21 @@ void Empresa::setDepartamentos(Departamento new_departamento){
     departamentos.push_back(new_departamento);
 }
 //-----------------------------------------------------------
-CentralRegional::CentralRegional(){
-    cant
+CentralRegional::CentralRegional(){}
+
+void CentralRegional::appendPais(string pais){
+    paises.insert(pais);
+}
+
+void CentralRegional::setCantEmpleados(int cantEmpleados){
+    this->cantEmpleados = cantEmpleados;
+}
+
+int CentralRegional::getCantEmpleados(){
+    return cantEmpleados;
+}
+
+void CentralRegional::appendGerentesAlto(GerenteAlto new_gerenteAlto){
+    gerentesAlto[cant_gerentesAlto] = new_gerenteAlto;
+    cant_gerentesAlto++;
 }

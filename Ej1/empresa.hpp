@@ -15,8 +15,8 @@ class EntidadOrganizativa{
         EntidadOrganizativa();
         EntidadOrganizativa(string nombre); //constructor
 
-        virtual void agregarSubentidad(shared_ptr<Empresa> data_subentidad); //<EntidadesOrganizativas> le crei a Mariano y use empresa nomas
-        virtual int contarSubentidades();
+        virtual void agregarSubentidad(shared_ptr<Empresa> data_subentidad); 
+        virtual int contarSubentidades(); //size set de central reg q cuenta empresas
     
         private:
             vector<Empresa> subentidades;
@@ -42,8 +42,10 @@ class Empresa : public EntidadOrganizativa{
 class CentralRegional: public EntidadOrganizativa{
     public:
         CentralRegional(); //constructor
-
+        //atributo
         set<string> paises;
+
+        //metodos
         int getCantEmpleados();
         vector<string> getEmpNames();
         array<GerenteAlto,5> getGerentesAlto();
@@ -52,15 +54,21 @@ class CentralRegional: public EntidadOrganizativa{
         //agrego
         void appendPais(string pais);
         void setCantEmpleados(int cantEmpleados);
+        void appendGerentesAlto(GerenteAlto new_gerenteAlto);
+        void appendGerentesMedio(GerenteMedio new_gerenteMedio);
 
         //IDEA: HACER VARIABLES QUE CUENTEN LA CANT DE GERENTES DE CADA TIPO
         //HASTA EL MOMENTO ASI VERIFICO CUANDO LLEGO AL LIMITE, SI TENGO MAS 
         //DE LO QUE PUEDO ME TIRA ERROR
     private:
         int cantEmpleados;
-        array<GerenteAlto,5> gerentesAlto();
-        array<GerenteMedio,20> gerentesMedio();
-        set<Empresa> empresas;
+        array<GerenteAlto,5> gerentesAlto;
+        array<GerenteMedio,20> gerentesMedio;
+        set<Empresa> empresas; //cada vez que aañada una empresa lo agrego aca
+
+        //agrego
+        int cant_gerentesAlto = 0;
+        int cant_gerentesMedio = 0;
 };
 
 
@@ -79,7 +87,6 @@ class Departamento{
         
     private:
         vector<Empleado> empleados;
-        static int cantEmpleadosDepts;
-        //Empleado Empleado; la composicion es por pasar el objeto y tenerlo 
-        //en el vector
+        static int cantEmpleadosDepts; //cuenta los empleados de todos los depts
+        //varible de clase , todas las instancias de departamento la comparten
 };

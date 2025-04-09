@@ -1,6 +1,6 @@
 #include "empleados.hpp"
 #include <iostream>
-
+#include <array>
 using namespace std;
 
 int main(){
@@ -8,5 +8,6 @@ int main(){
     GerenteMedio Gerente_Pedro("Pedro", "Ventas", 10, 5000);
     GerenteBajo Gerente_Juan("Juan", "Diseño y construcción",5,2500);
     LiderEquipo Lider_Marcos("Marcos", "Publicidad", 2, 1250);
-    
+
+  
 }
