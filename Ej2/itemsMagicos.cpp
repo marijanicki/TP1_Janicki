@@ -1,12 +1,12 @@
-#include "interfaz.hpp"
+#include "Iarmas.hpp"
 #include "itemsMagicos.hpp"
 
 #include <string>
-
-items_magicos::items_magicos(string nombre, string type, int poder_magico, int desgasteMana, int durabilidad){
+using namespace std;
+items_magicos::items_magicos(string nombre, string type, int consumo_mana, int poder_magico,  int durabilidad){
     this->nombre = nombre;
     this->type = type;
-    this->desgaste_mana = desgaste_mana;
+    this->consumo_mana = consumo_mana;
     this->poder_magico = poder_magico;
     this->durabilidad = durabilidad;
 }
@@ -16,4 +16,13 @@ string items_magicos::getName(){
 }
 string items_magicos::get_armaType(){
     return type;
+}
+int items_magicos::getpower(){
+    return poder_magico;
+}
+int items_magicos::getDesgaste(){
+    return Mana;
+}
+void items_magicos::decreasePower(){
+    if(getMana()< )
 }

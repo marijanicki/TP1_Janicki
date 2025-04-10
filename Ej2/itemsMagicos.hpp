@@ -1,6 +1,7 @@
-#include "interfaz.hpp"
+#include "Iarmas.hpp"
 
 #include <string>
+using namespace std;
 //clases abstractas
 class items_magicos:public armas{
     private:
@@ -8,10 +9,10 @@ class items_magicos:public armas{
         int durabilidad;
         string nombre;
         string type;
-        int desgaste_mana;
+        int consumo_mana;
     public:
         //constructor
-        items_magicos(string nombre, string type, int poder_magico, int desgasteMana, int durabilidad);
+        items_magicos(string nombre, string type, int consumo_mana, int poder_magico,  int durabilidad);
 
         virtual string getName()override;
         virtual int getpower()override;

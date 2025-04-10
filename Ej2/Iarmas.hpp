@@ -9,5 +9,5 @@ class armas{
     virtual string get_armaType()=0;
     virtual void efectividad(int turno)=0;
     virtual int getDesgaste()=0;
-    virtual void decreasePower() =0;
-};
+    virtual void decreasePower()=0;
+}
