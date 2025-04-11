@@ -15,13 +15,13 @@ class magos:public personajes{
         virtual string getType()override;
         virtual int getHp()override; 
         virtual void setHp(int new_hp)override;
-        virtual void setMana(int new_mana)=0; 
-        virtual int getMana() = 0;
+        virtual void setMana(int new_mana)override; 
+        virtual int getMana()override;
         virtual void afinidad_arma(shared_ptr<armas> arma)override;
         //virtual void afinidad_enemy(shared_ptr<personajes> enemy)override;
         virtual int ataque(shared_ptr<armas> arma)override;
         virtual void appendArma(shared_ptr<armas> arma)override;
-        virtual int recibirdaño(int daño)override;
+        virtual void recibirdaño(int daño)override;
         virtual  ~magos();
     protected:
         string name;

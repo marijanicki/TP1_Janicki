@@ -71,9 +71,12 @@ void magos::afinidad_enemy(shared_ptr<personajes> enemy){
     }
 }*/
 
-int magos::recibirdaño(int daño){
+void magos::recibirdaño(int daño){
     setHp(getHp()-daño);
 }
+
+magos::~magos(){}
+
 hechicero::hechicero(string name) : magos(name, "magos", 100){};
 
 conjurador::conjurador(string name) : magos(name, "magos", 80){};

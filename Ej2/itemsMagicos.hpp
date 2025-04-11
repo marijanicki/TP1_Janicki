@@ -1,10 +1,11 @@
+#pragma once
 #include "Iarmas.hpp"
 
 #include <string>
 using namespace std;
 //clases abstractas
 class items_magicos:public armas{
-    private:
+    protected:
         int poder_magico;
         int durabilidad;
         string nombre;
@@ -21,7 +22,7 @@ class items_magicos:public armas{
         virtual int getDurabilidad()override;
         virtual int getDesgaste()override; //devuelve el consumo de mana
         virtual void setPower(int poder_magico)override;
-        virtual  ~items_magicos(){};
+        virtual  ~items_magicos();
 };
 
 class baston : public items_magicos{
