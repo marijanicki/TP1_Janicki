@@ -49,8 +49,8 @@ int guerreros::ataque(shared_ptr<armas> arma){
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
 
-            auto arma_combate = dynamic_pointer_cast<shared_ptr<armasCombate>>(arma);
-            daño_TT = 10+ arma->getpower() + (arma->getPeso()*0.5); //preg
+            shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
+            daño_TT = 10+ arma->getpower() + (arma_combate->getPeso()*0.5); //preg
         }
         else{
             //seria un item magico
@@ -82,6 +82,16 @@ void guerreros::recibirdaño(int daño){
     setHp(getHp()-daño);
 }
 
+bool guerreros::isDead(){
+    if(getHp()<=0){
+        return true;
+    }
+    return false;
+}
+
+shared_ptr<armas> guerreros::getArma(size_t pos){
+    return armas_pj[pos];
+}
 guerreros::~guerreros(){}
 
 //-----------------------guerreros

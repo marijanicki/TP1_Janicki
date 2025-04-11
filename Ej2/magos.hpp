@@ -25,6 +25,7 @@ class magos:public personajes{
         virtual void appendArma(shared_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
         virtual bool isDead()override;
+        virtual shared_ptr<armas> getArma(size_t pos)override;
         virtual  ~magos();
     protected:
         string name;

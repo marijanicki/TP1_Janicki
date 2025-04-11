@@ -12,5 +12,5 @@ class armas{
         virtual int getDurabilidad() = 0;
         virtual int getDesgaste()=0;
         virtual void setPower(int poder_magico)=0; 
-        virtual float getPeso()=0;    
+        //virtual float getPeso()=0;    
 };

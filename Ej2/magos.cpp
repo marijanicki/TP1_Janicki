@@ -47,7 +47,8 @@ int magos::ataque(shared_ptr<armas> arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-            daño_TT = 10+ arma->getpower()*(1/3) + (arma->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
+            shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
+            daño_TT = 10+ arma->getpower()*(1/3) + (arma_combate->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
         }
         else{
             //seria un item magico
@@ -84,6 +85,9 @@ bool magos::isDead(){
         return true;
     }
     return false;
+}
+shared_ptr<armas> magos::getArma(size_t pos){
+    return armas_pj[pos];
 }
 magos::~magos(){}
 

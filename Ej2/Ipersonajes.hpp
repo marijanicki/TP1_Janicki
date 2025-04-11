@@ -11,6 +11,7 @@ class personajes{
         virtual string getType() = 0;
         virtual void setHp(int new_hp) =0;
         virtual int getHp() = 0;
+        virtual shared_ptr<armas> getArma(size_t pos)=0;
         virtual void setEnergia(int new_cant_energ)=0; 
         virtual int getEnergia() = 0;
         virtual void afinidad_arma(shared_ptr<armas> arma) = 0;

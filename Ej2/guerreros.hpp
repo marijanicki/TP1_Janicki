@@ -15,6 +15,7 @@ class guerreros:public personajes{
         virtual string getName()override;
         virtual string getType()override;
         virtual int getHp()override; 
+
         virtual void setHp(int new_hp)override;
         virtual void setEnergia(int new_cant_energ)override; 
         virtual int getEnergia()override;
@@ -23,6 +24,8 @@ class guerreros:public personajes{
         virtual int ataque(shared_ptr<armas> arma)override;
         virtual void appendArma(shared_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
+        virtual bool isDead()override;
+        virtual shared_ptr<armas> getArma(size_t pos)override;
         virtual  ~guerreros();
     protected:
         string name;
