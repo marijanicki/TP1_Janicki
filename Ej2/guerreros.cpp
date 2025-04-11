@@ -1,57 +1,58 @@
 #include "Ipersonajes.hpp"
 #include "Iarmas.hpp"
 
-#include "magos.hpp"
+#include "guerreros.hpp"
 
 using namespace std;
 class armas;
 //preguntar armas como hacer, vector<shared_ptr<armas>> armas
-magos::magos(string name, string type, int mana){
+guerreros::guerreros(string name, string type, int mana){
     this->name = name;
     this->type = type;
-    this->mana = mana;
+    this->agilidad = agilidad;
     hp = 100;
 }
 
-string magos::getName(){return name;}
+string guerreros::getName(){return name;}
 
-string magos::getType(){return type;}
+string guerreros::getType(){return type;}
 
-void magos::setHp(int new_hp){this->hp = new_hp;}
+void guerreros::setHp(int new_hp){this->hp = new_hp;}
 
-int magos::getHp(){return hp;}
+int guerreros::getHp(){return hp;}
 
-void magos::setEnergia(int new_cant_energ){
-    this->mana = new_cant_energ;
+void guerreros::setEnergia(int new_cant_energ){
+    this->agilidad = new_cant_energ;
 } 
-int magos::getEnergia(){
-    return mana;
+int guerreros::getEnergia(){
+    return agilidad;
 }
 
-void magos::appendArma(shared_ptr<armas> arma){
+void guerreros::appendArma(shared_ptr<armas> arma){
     armas_pj.push_back(arma);
 }
 
-void magos::afinidad_arma(shared_ptr<armas> arma){
+void guerreros::afinidad_arma(shared_ptr<armas> arma){
     if(type == arma->get_armaType()){
-        arma->setPower(arma->getpower()+5); //si sos un tipo de gu junto a objetos de magia se te aumenta un poco el daño 
+        arma->setPower(arma->getpower()+5); //si sos un tipo de mago junto a objetos de magia se te aumenta un poco el daño 
         //Cada personaje además tiene sus armas especificas con mayor afinidad
     }
 }
 
-int magos::ataque(shared_ptr<armas> arma){
+int guerreros::ataque(shared_ptr<armas> arma){
     float daño_TT =0;
     if(arma->getDurabilidad() == 0){
+        //arma->setPower(0);
         daño_TT = 10; //si mi arma se encuentra rota debido al uso, solo hace el ataque basico, ya no tiene poder
     }
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-            daño_TT = 10+ arma->getpower()*(1/3) + (arma->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
+            daño_TT = 10+ arma->getpower() + (arma->getPeso()*0.5); //preg
         }
         else{
             //seria un item magico
-            daño_TT = 10+ arma->getpower(); 
+            daño_TT = 10+ arma->getpower()*(1/3); //al no ser un arma de la especialidad de los guerreros no son tan efectivas, no pueden aprovecharlas por no tener mana
         }
     }
    
@@ -68,7 +69,6 @@ int magos::ataque(shared_ptr<armas> arma){
 
     return daño_TT;
 }
-
 /*
 void magos::afinidad_enemy(shared_ptr<personajes> enemy){
     if(enemy->getType() == type){
@@ -76,21 +76,8 @@ void magos::afinidad_enemy(shared_ptr<personajes> enemy){
     }
 }*/
 
-void magos::recibirdaño(int daño){
+void guerreros::recibirdaño(int daño){
     setHp(getHp()-daño);
 }
-bool magos::isDead(){
-    if(getHp()<=0){
-        return true;
-    }
-    return false;
-}
-magos::~magos(){}
 
-hechicero::hechicero(string name) : magos(name, "magos", 100){};
-
-conjurador::conjurador(string name) : magos(name, "magos", 80){};
-
-brujo::brujo(string name) : magos(name, "magos", 60){};
-
-nigromante::nigromante(string name) : magos(name, "magos", 120){};
+guerreros::~guerreros(){}

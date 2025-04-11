@@ -6,10 +6,10 @@ using namespace std;
 //clases abstractas
 class items_magicos:public armas{
     protected:
-        int poder_magico;
-        int durabilidad;
         string nombre;
         string type;
+        int poder_magico;
+        int durabilidad;
         int consumo_mana;
     public:
         //constructor

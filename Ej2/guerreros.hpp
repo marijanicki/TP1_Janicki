@@ -9,9 +9,9 @@
 
 using namespace std; 
  
-class magos:public personajes{
+class guerreros:public personajes{
     public:
-        magos(string name, string type, int mana);
+        guerreros(string name, string type, int agilidad);
         virtual string getName()override;
         virtual string getType()override;
         virtual int getHp()override; 
@@ -23,45 +23,11 @@ class magos:public personajes{
         virtual int ataque(shared_ptr<armas> arma)override;
         virtual void appendArma(shared_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
-        virtual bool isDead()override;
-        virtual  ~magos();
+        virtual  ~guerreros();
     protected:
         string name;
         string type;
         int hp;
-        int mana;
+        int agilidad;
         vector<shared_ptr<armas>> armas_pj;
-
-};
-
-class hechicero: public magos{
-    public:
-        hechicero(string name);
-    private:
-        string name;
-        int mana;
-};
-
-class conjurador: public magos{
-    public:
-        conjurador(string name);
-    private:
-        string name;
-        int mana;
-};
-
-class brujo: public magos{
-    public:
-        brujo(string name);
-    private:
-        string name;
-        int mana;
-};
-
-class nigromante: public magos{
-    public:
-        nigromante(string name);
-    private:
-        string name;
-        int mana;
 };
