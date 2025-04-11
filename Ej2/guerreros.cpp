@@ -6,7 +6,7 @@
 using namespace std;
 class armas;
 //preguntar armas como hacer, vector<shared_ptr<armas>> armas
-guerreros::guerreros(string name, string type, int mana){
+guerreros::guerreros(string name, string type, int agilidad){
     this->name = name;
     this->type = type;
     this->agilidad = agilidad;
@@ -81,3 +81,15 @@ void guerreros::recibirdaño(int daño){
 }
 
 guerreros::~guerreros(){}
+
+//-----------------------guerreros
+
+barbaro::barbaro(string nombre) : guerreros(nombre, "Guerrero", 100){}
+
+paladin::paladin(string nombre) : guerreros(nombre, "Guerrero", 70){}
+
+caballero::caballero(string nombre) : guerreros(nombre, "Guerreros", 60){}
+
+merceneario::merceneario(string nombre) : guerreros(nombre, "Guerrero", 90){}
+
+gladiador::gladiador(string nombre) : guerreros(nombre, "Guerrero", 110){}

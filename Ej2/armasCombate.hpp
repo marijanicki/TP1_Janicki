@@ -23,3 +23,25 @@ class armasCombate : public armas{
         virtual float getPeso()= 0; 
         virtual  ~armasCombate();
 };
+
+class hacha_simple : public armasCombate{
+    public: 
+        hacha_simple(string name);
+};
+
+class hacha_doble : public armasCombate{
+    public: 
+        hacha_doble(string name);
+};
+class espada : public armasCombate{
+    public: 
+        espada(string name);
+};
+class lanza : public armasCombate{
+    public: 
+        lanza(string name);
+};
+class garrote : public armasCombate{
+    public: 
+        garrote(string name);
+};

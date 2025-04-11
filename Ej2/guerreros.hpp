@@ -31,3 +31,25 @@ class guerreros:public personajes{
         int agilidad;
         vector<shared_ptr<armas>> armas_pj;
 };
+
+class barbaro : public guerreros{
+    public: 
+        barbaro(string nombre);
+};
+
+class paladin : public guerreros{
+    public: 
+        paladin(string nombre);
+};
+class caballero : public guerreros{
+    public: 
+        caballero(string nombre);
+};
+class merceneario : public guerreros{
+    public: 
+        merceneario(string nombre);
+};
+class gladiador : public guerreros{
+    public: 
+        gladiador(string nombre);
+};
