@@ -17,8 +17,14 @@ class items_magicos:public armas{
         virtual string getName()override;
         virtual int getpower()override;
         virtual string get_armaType()override;
-        virtual void efectividad(int turno)override;
-        virtual int getDesgaste()override;
+        virtual void setDurabilidad()override;
+        virtual int getDurabilidad()override;
+        virtual int getDesgaste()override; //devuelve el consumo de mana
         virtual void setPower(int poder_magico)override;
         virtual  ~items_magicos(){};
 };
+
+class baston : public items_magicos{
+    public:
+        baston(string name, )
+}

@@ -8,7 +8,7 @@ items_magicos::items_magicos(string nombre, string type, int consumo_mana, int p
     this->type = type;
     this->consumo_mana = consumo_mana;
     this->poder_magico = poder_magico;
-    this->durabilidad = durabilidad;
+    this->durabilidad = durabilidad; //cant de rondas que dura 
 }
 
 string items_magicos::getName(){
@@ -21,9 +21,15 @@ int items_magicos::getpower(){
     return poder_magico;
 }
 int items_magicos::getDesgaste(){
-    return Mana;
+    return consumo_mana;
 }
 void items_magicos::setPower(int poder_magico){
     this->poder_magico = poder_magico;
 }
-int items_magicos::
+void items_magicos::setDurabilidad(){
+    this->durabilidad = durabilidad-1; //cada vez que ataco mi arma se rompe un poquito
+}
+int items_magicos::getDurabilidad(){
+    return durabilidad;
+}
+

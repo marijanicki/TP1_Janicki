@@ -11,7 +11,6 @@ magos::magos(string name, string type, int mana){
     this->type = type;
     this->mana = mana;
     hp = 100;
-    status = 0;
 }
 
 string magos::getName(){return name;}
@@ -21,6 +20,13 @@ string magos::getType(){return type;}
 void magos::setHp(int new_hp){this->hp = new_hp;}
 
 int magos::getHp(){return hp;}
+
+void magos::setMana(int new_mana){
+    this->mana = new_mana;
+} 
+int magos::getMana(){
+    return mana;
+}
 
 void magos::appendArma(shared_ptr<armas> arma){
     armas_pj.push_back(arma);
@@ -33,9 +39,25 @@ void magos::afinidad_arma(shared_ptr<armas> arma){
     }
 }
 
-int magos::ataque(string tipo_ataque, shared_ptr<armas> arma){
+int magos::ataque(shared_ptr<armas> arma){
+    int daño_TT;
+    if(arma->getDurabilidad() == 0){
+        arma->setPower(0);
+        daño_TT = 10; //si mi arma se encuentra rota debido al uso, solo hace el ataque basico, ya no tiene poder
+    }
+    else{
+        daño_TT = arma->getpower()+10;
+    }
 
-    int daño_TT = arma->getpower()+10;
+    if(getMana() < 20){
+        daño_TT = daño_TT / 4; //al tener una cantidad muy poca de mana el ataque se vuelve muchisimo menos fuerte
+    }
+    else if(getMana() >= 20 && getMana()<= 40){
+        daño_TT = daño_TT /2; //se le baja el ataque pero no tanto, en este turno
+    }
+    
+    setMana(getMana()-arma->getDesgaste()); //al mana total le resto el mana que me consume mi arma pero como resultado de atacar, es decir, no me va a afectar en este turno sino en el otro
+    arma->setDurabilidad();
     return daño_TT;
 }
 /*
