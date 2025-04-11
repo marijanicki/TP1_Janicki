@@ -19,6 +19,6 @@ class items_magicos:public armas{
         virtual string get_armaType()override;
         virtual void efectividad(int turno)override;
         virtual int getDesgaste()override;
-        virtual void decreasePower()override;
+        virtual void setPower(int poder_magico)override;
         virtual  ~items_magicos(){};
 };

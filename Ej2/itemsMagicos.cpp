@@ -23,6 +23,7 @@ int items_magicos::getpower(){
 int items_magicos::getDesgaste(){
     return Mana;
 }
-void items_magicos::decreasePower(){
-    if(getMana()< )
+void items_magicos::setPower(int poder_magico){
+    this->poder_magico = poder_magico;
 }
+int items_magicos::
