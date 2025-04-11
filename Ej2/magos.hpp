@@ -19,6 +19,7 @@ class magos:public personajes{
         virtual void setEnergia(int new_cant_energ)override; 
         virtual int getEnergia()override;
         virtual void afinidad_arma(shared_ptr<armas> arma)override;
+        
         //virtual void afinidad_enemy(shared_ptr<personajes> enemy)override;
         virtual int ataque(shared_ptr<armas> arma)override;
         virtual void appendArma(shared_ptr<armas> arma)override;

@@ -20,7 +20,7 @@ class armasCombate : public armas{
         virtual int getDurabilidad()override;
         virtual int getDesgaste()override;
         virtual void setPower(int poder_magico)override;
-        virtual float getPeso()= 0; 
+        virtual float getPeso()override; 
         virtual  ~armasCombate();
 };
 

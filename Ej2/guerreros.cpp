@@ -48,6 +48,8 @@ int guerreros::ataque(shared_ptr<armas> arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
+
+            auto arma_combate = dynamic_pointer_cast<shared_ptr<armasCombate>>(arma);
             daño_TT = 10+ arma->getpower() + (arma->getPeso()*0.5); //preg
         }
         else{

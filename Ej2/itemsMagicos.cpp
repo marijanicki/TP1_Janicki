@@ -33,6 +33,7 @@ int items_magicos::getDurabilidad(){
     return durabilidad;
 }
 
+
 items_magicos::~items_magicos(){}
 //-------------armas
 baston::baston(string name) : items_magicos(name, "Items magicos", 5, 7, 7){}

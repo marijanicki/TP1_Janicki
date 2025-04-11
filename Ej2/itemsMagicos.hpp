@@ -11,10 +11,11 @@ class items_magicos:public armas{
         int poder_magico;
         int durabilidad;
         int consumo_mana;
+        
     public:
         //constructor
         items_magicos(string nombre, string type, int consumo_mana, int poder_magico,  int durabilidad);
-
+        float getPeso() = 0;
         virtual string getName()override;
         virtual int getpower()override;
         virtual string get_armaType()override;
