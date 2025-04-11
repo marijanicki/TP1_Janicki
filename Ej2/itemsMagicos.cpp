@@ -33,3 +33,13 @@ int items_magicos::getDurabilidad(){
     return durabilidad;
 }
 
+//-------------armas
+baston::baston(string name) : items_magicos(name, "Items magicos", 5, 7, 7){}
+
+libro::libro(string name) : items_magicos(name, "Items magicos", 15, 15, 4){} //revisar numeros
+//tienen poca durabilidad porq su ataque es muy alto, en caso tiene ventaja al principio pero si se cansa y pierde su mana es muy debil
+
+pocion::pocion(string name) : items_magicos(name, "Items magicos", 20, 10, 5){} //cansa mucho al q la usa
+
+amuleto::amuleto(string name) : items_magicos(name, "Items magicos", 8, 10, 8){}
+

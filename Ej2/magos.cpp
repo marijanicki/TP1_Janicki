@@ -51,6 +51,9 @@ int magos::ataque(shared_ptr<armas> arma){
 
     if(getMana() < 20){
         daño_TT = daño_TT / 4; //al tener una cantidad muy poca de mana el ataque se vuelve muchisimo menos fuerte
+        if(getMana() < 10) {
+            setHp(getHp()-1); //al tener poco mano, eso lo agota y le consume un poquito de vida atacar
+        }
     }
     else if(getMana() >= 20 && getMana()<= 40){
         daño_TT = daño_TT /2; //se le baja el ataque pero no tanto, en este turno
@@ -58,6 +61,7 @@ int magos::ataque(shared_ptr<armas> arma){
     
     setMana(getMana()-arma->getDesgaste()); //al mana total le resto el mana que me consume mi arma pero como resultado de atacar, es decir, no me va a afectar en este turno sino en el otro
     arma->setDurabilidad();
+
     return daño_TT;
 }
 /*
