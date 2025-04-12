@@ -96,13 +96,17 @@ armas* guerreros::getArma(size_t pos){
 guerreros::~guerreros(){}
 
 //-----------------------guerreros
-
+barbaro::barbaro() : guerreros("Barbaro", "Guerrero", 100){}
 barbaro::barbaro(string nombre) : guerreros(nombre, "Guerrero", 100){}
 
+paladin::paladin() : guerreros("Paladin", "Guerrero", 70){}
 paladin::paladin(string nombre) : guerreros(nombre, "Guerrero", 70){}
 
+caballero::caballero() : guerreros("Caballero", "Guerreros", 60){}
 caballero::caballero(string nombre) : guerreros(nombre, "Guerreros", 60){}
 
+merceneario::merceneario() : guerreros("Mercenario", "Guerrero", 90){}
 merceneario::merceneario(string nombre) : guerreros(nombre, "Guerrero", 90){}
 
+gladiador::gladiador() : guerreros("Gladiador", "Guerrero", 110){}
 gladiador::gladiador(string nombre) : guerreros(nombre, "Guerrero", 110){}

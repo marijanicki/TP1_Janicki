@@ -37,22 +37,27 @@ class guerreros:public personajes{
 
 class barbaro : public guerreros{
     public: 
+        barbaro();
         barbaro(string nombre);
 };
 
 class paladin : public guerreros{
     public: 
+        paladin();
         paladin(string nombre);
 };
 class caballero : public guerreros{
     public: 
+        caballero();
         caballero(string nombre);
 };
 class merceneario : public guerreros{
     public: 
+        merceneario();
         merceneario(string nombre);
 };
 class gladiador : public guerreros{
     public: 
+        gladiador();
         gladiador(string nombre);
 };

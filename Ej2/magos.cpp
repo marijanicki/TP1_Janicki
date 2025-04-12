@@ -92,10 +92,14 @@ armas* magos::getArma(size_t pos){
 }
 magos::~magos(){}
 
+hechicero::hechicero() :magos("Hechicero", "magos", 100){};
 hechicero::hechicero(string name) : magos(name, "magos", 100){};
 
+conjurador::conjurador() : magos("Conjurador", "magos", 80){};
 conjurador::conjurador(string name) : magos(name, "magos", 80){};
 
+brujo::brujo() : magos("Brujo", "magos", 60){};
 brujo::brujo(string name) : magos(name, "magos", 60){};
 
+nigromante::nigromante() : magos("Nigromante", "magos", 120){};
 nigromante::nigromante(string name) : magos(name, "magos", 120){};

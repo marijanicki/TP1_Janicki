@@ -7,6 +7,13 @@
 
 using namespace std;
 
+enum class PERSONAJES :uint8_t{hechicero, brujo, nigromante, conjurador, caballero, paladin, mercenario, barbaro, gladiador};
+enum class ARMAS : uint8_t{baston, libro, pocion, amuleto, hacha_simple, hacha_doble, espada, lanza, garrote};
+
 class PersonajeFactory{
-    static unique_ptr<personajes> make_personaje( )
-}
+    public:
+        static unique_ptr<personajes> make_personaje(PERSONAJES character);
+        static unique_ptr<armas> make_arma(ARMAS arma);
+        static unique_ptr<personajes> make_personajeArmado(PERSONAJES character, vector<ARMAS> armas_factory);
+};
+

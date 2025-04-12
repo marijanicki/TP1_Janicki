@@ -38,6 +38,7 @@ class magos:public personajes{
 
 class hechicero: public magos{
     public:
+        hechicero();
         hechicero(string name);
     private:
         string name;
@@ -46,6 +47,7 @@ class hechicero: public magos{
 
 class conjurador: public magos{
     public:
+        conjurador();
         conjurador(string name);
     private:
         string name;
@@ -54,6 +56,7 @@ class conjurador: public magos{
 
 class brujo: public magos{
     public:
+        brujo();
         brujo(string name);
     private:
         string name;
@@ -62,6 +65,7 @@ class brujo: public magos{
 
 class nigromante: public magos{
     public:
+        nigromante();
         nigromante(string name);
     private:
         string name;

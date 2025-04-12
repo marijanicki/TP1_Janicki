@@ -27,18 +27,22 @@ class items_magicos:public armas{
 
 class baston : public items_magicos{
     public:
+        baston();
         baston(string name);
 };
 
 class libro : public items_magicos{
     public:
+        libro();
         libro(string name);
 };
 class pocion : public items_magicos{
     public:
+        pocion();
         pocion(string name);
 };
 class amuleto : public items_magicos{
     public:
+        amuleto();
         amuleto(string name);
 };
