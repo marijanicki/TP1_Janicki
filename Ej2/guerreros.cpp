@@ -28,18 +28,18 @@ int guerreros::getEnergia(){
     return agilidad;
 }
 
-void guerreros::appendArma(shared_ptr<armas> arma){
-    armas_pj.push_back(arma);
+void guerreros::appendArma(unique_ptr<armas> arma){
+    armas_pj.push_back(move(arma));
 }
 
-void guerreros::afinidad_arma(shared_ptr<armas> arma){
+void guerreros::afinidad_arma(unique_ptr<armas> arma){
     if(type == arma->get_armaType()){
         arma->setPower(arma->getpower()+5); //si sos un tipo de mago junto a objetos de magia se te aumenta un poco el daño 
         //Cada personaje además tiene sus armas especificas con mayor afinidad
     }
 }
 
-int guerreros::ataque(shared_ptr<armas> arma){
+int guerreros::ataque(unique_ptr<armas>& arma){
     float daño_TT =0;
     if(arma->getDurabilidad() == 0){
         //arma->setPower(0);
@@ -48,8 +48,9 @@ int guerreros::ataque(shared_ptr<armas> arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-
-            shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
+            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma.get());
+            //unique_ptr<armasCombate> arma_combate = make_unique<armasCombate>(dynamic_cast<armasCombate*>(arma.get()));
+            //shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
             daño_TT = 10+ arma->getpower() + (arma_combate->getPeso()*0.5); //preg
         }
         else{
@@ -89,8 +90,8 @@ bool guerreros::isDead(){
     return false;
 }
 
-shared_ptr<armas> guerreros::getArma(size_t pos){
-    return armas_pj[pos];
+armas* guerreros::getArma(size_t pos){
+    return armas_pj[pos].get();
 }
 guerreros::~guerreros(){}
 

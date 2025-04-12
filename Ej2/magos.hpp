@@ -18,21 +18,21 @@ class magos:public personajes{
         virtual void setHp(int new_hp)override;
         virtual void setEnergia(int new_cant_energ)override; 
         virtual int getEnergia()override;
-        virtual void afinidad_arma(shared_ptr<armas> arma)override;
+        virtual void afinidad_arma(unique_ptr<armas> arma)override;
         
         //virtual void afinidad_enemy(shared_ptr<personajes> enemy)override;
-        virtual int ataque(shared_ptr<armas> arma)override;
-        virtual void appendArma(shared_ptr<armas> arma)override;
+        virtual int ataque(unique_ptr<armas>& arma)override;
+        virtual void appendArma(unique_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
         virtual bool isDead()override;
-        virtual shared_ptr<armas> getArma(size_t pos)override;
+        virtual armas* getArma(size_t pos)override;
         virtual  ~magos();
     protected:
         string name;
         string type;
         int hp;
         int mana;
-        vector<shared_ptr<armas>> armas_pj;
+        vector<unique_ptr<armas>> armas_pj;
 
 };
 

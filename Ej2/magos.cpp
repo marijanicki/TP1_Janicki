@@ -28,18 +28,18 @@ int magos::getEnergia(){
     return mana;
 }
 
-void magos::appendArma(shared_ptr<armas> arma){
-    armas_pj.push_back(arma);
+void magos::appendArma(unique_ptr<armas> arma){
+    armas_pj.push_back(move(arma));
 }
 
-void magos::afinidad_arma(shared_ptr<armas> arma){
+void magos::afinidad_arma(unique_ptr<armas> arma){
     if(type == arma->get_armaType()){
         arma->setPower(arma->getpower()+5); //si sos un tipo de gu junto a objetos de magia se te aumenta un poco el daño 
         //Cada personaje además tiene sus armas especificas con mayor afinidad
     }
 }
 
-int magos::ataque(shared_ptr<armas> arma){
+int magos::ataque(unique_ptr<armas>& arma){
     float daño_TT =0;
     if(arma->getDurabilidad() == 0){
         daño_TT = 10; //si mi arma se encuentra rota debido al uso, solo hace el ataque basico, ya no tiene poder
@@ -47,7 +47,8 @@ int magos::ataque(shared_ptr<armas> arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-            shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
+            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma.get());
+            //shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
             daño_TT = 10+ arma->getpower()*(1/3) + (arma_combate->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
         }
         else{
@@ -86,8 +87,8 @@ bool magos::isDead(){
     }
     return false;
 }
-shared_ptr<armas> magos::getArma(size_t pos){
-    return armas_pj[pos];
+armas* magos::getArma(size_t pos){
+    return armas_pj[pos].get();
 }
 magos::~magos(){}
 

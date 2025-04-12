@@ -11,7 +11,7 @@
 using namespace std;
 
 int main(){
-    shared_ptr baston1 = make_shared<baston>("baston1");
+    unique_ptr baston1 = make_unique<baston>("baston1");
     //baston baston("baston1");
     hechicero hechicero("Hechicero1");
     cout << hechicero.getType()<<endl;
@@ -20,12 +20,13 @@ int main(){
     cout <<baston.getDesgaste()<<endl;*/
     barbaro barbaro("Luca");
     cout <<barbaro.getName()<<endl;
-    barbaro.appendArma(baston1);
+    barbaro.appendArma(move(baston1));
     cout << barbaro.getArma(0)->getpower()<<endl;
     nigromante nigromante("Bombi");
     cout << nigromante.getName()<<endl;
-    shared_ptr garrote_b = make_shared<garrote>("Mati P");
-    nigromante.appendArma(garrote_b);
+
+    unique_ptr garrote_b = make_unique<garrote>("Mati P");
+    nigromante.appendArma(move(garrote_b));
     cout<< nigromante.getArma(0)->getName()<<endl;
     cout<< nigromante.getArma(0)->getpower()<<endl;
     cout<< barbaro.getEnergia()<<endl;
