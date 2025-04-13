@@ -53,5 +53,5 @@ espada::espada(string nombre) : armasCombate(nombre, "Combate", 12,1.5, 8){}
 lanza::lanza() : armasCombate("Lanza", "Combate", 7, 8, 4){}
 lanza::lanza(string nombre) : armasCombate(nombre, "Combate", 7, 8, 4){}
 
-garrote::garrote() : armasCombate("Garrote", "Combate", 15, 15,7){}
-garrote::garrote(string nombre) : armasCombate(nombre, "Combate", 15, 15,7){}
+garrote::garrote() : armasCombate("Garrote", "Combate", 15, 10,3){}
+garrote::garrote(string nombre) : armasCombate(nombre, "Combate", 15, 10,3){}

@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 class armas;
-//preguntar armas como hacer, vector<shared_ptr<armas>> armas
+
 magos::magos(string name, string type, int mana){
     this->name = name;
     this->type = type;
@@ -35,7 +35,6 @@ void magos::appendArma(unique_ptr<armas> arma){
 void magos::afinidad_arma(unique_ptr<armas> arma){
     if(type == arma->get_armaType()){
         arma->setPower(arma->getpower()+5); //si sos un tipo de gu junto a objetos de magia se te aumenta un poco el daño 
-        //Cada personaje además tiene sus armas especificas con mayor afinidad
     }
 }
 
@@ -59,7 +58,6 @@ int magos::ataque(armas* arma){
    
     if(getEnergia() < 30){
         daño_TT = daño_TT / 2; //al tener una cantidad muy poca de mana el ataque se vuelve muchisimo menos fuerte
-        cout<<"Cansado"<<endl;
         if(getEnergia() <= 20) {
             setHp(getHp()-1); //al tener poco mano, eso lo agota y le consume un poquito de vida atacar
         }
@@ -71,13 +69,6 @@ int magos::ataque(armas* arma){
 
     return daño_TT;
 }
-
-/*
-void magos::afinidad_enemy(shared_ptr<personajes> enemy){
-    if(enemy->getType() == type){
-
-    }
-}*/
 
 void magos::recibirdaño(int daño){
     setHp(getHp()-daño);

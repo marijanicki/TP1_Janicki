@@ -94,6 +94,7 @@ void ataque_jugador2(personajes* jugador1, personajes* jugador2){
     cout << "El " << jugador2->getName() << " ataca con " << jugador2->getArma(0)->getName() << " y hace "<<daño_tt << " puntos de daño.\n\n"<<endl;
 }
 int main(){
+    srand(time(NULL));
     int op_personaje;
     int op_arma;
     bool valid = true;
@@ -134,7 +135,7 @@ int main(){
             valid = false;
         }
         else{
-            cout << "\nOpción inválida. Intentelo nuevamente.\n"<<endl;
+            cout << "\nOpción inválida. Intentelo nuevamente.\n\n"<<endl;
         }
     }
     
@@ -146,6 +147,7 @@ int main(){
     
     //jugador2
     int personaje2 = 0 + rand() % (8-0+1);
+    cout << "p"<<personaje2<<endl;
     int arma2 = 0 + rand() % (8-0+1);
     arma_factory.erase(arma_factory.begin());
     arma_factory.push_back(static_cast<ARMAS>(arma2));
@@ -158,8 +160,8 @@ int main(){
         cout<<"Elija su ataque: (1) Golpe Fuerte, (2) Golpe Rápido, (3) Defensa y Golpe: ";
         cin>>op_ataque;
         rand_attack = 1 + rand() % (3-1+1);
-        cout<<"ataque "<<rand_attack<<endl;
         if(op_ataque == rand_attack){
+            cout << "Ambos utilizan el mismo ataque\n"<<endl;
             continue;
         }
         //si es ataque fuerte
@@ -171,7 +173,7 @@ int main(){
                 ataque_jugador2(Jugador1.get(), Jugador2.get());
             }
         }
-        else if(op_ataque == 2){
+        else if(op_ataque == 2){ //ataque rapido
             if(rand_attack == 1){
                 ataque_jugador2(Jugador1.get(), Jugador2.get());
             }
@@ -179,7 +181,7 @@ int main(){
                 ataque_jugador1(Jugador1.get(), Jugador2.get());
             }
         }
-        else if(op_ataque == 3){
+        else if(op_ataque == 3){ //defensa y ataque
             if(rand_attack == 1){
                 ataque_jugador1(Jugador1.get(), Jugador2.get());
             }
@@ -188,7 +190,7 @@ int main(){
             }
         }
         else{
-            cout<< "Ataque inálido!"<<endl;
+            cout<< "Ataque inálido!\n"<<endl;
         }
     }
 }
