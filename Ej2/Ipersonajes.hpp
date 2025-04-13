@@ -16,7 +16,7 @@ class personajes{
         virtual int getEnergia() = 0;
         virtual void afinidad_arma(unique_ptr<armas> arma) = 0;
         //virtual void afinidad_enemy(shared_ptr<personajes> enemy) = 0;
-        virtual int ataque(unique_ptr<armas>& arma) =0;
+        virtual int ataque(armas* arma) =0;
         virtual void appendArma(unique_ptr<armas> arma) = 0;
         virtual void recibirdaño(int daño) = 0;
         virtual bool isDead()=0;

@@ -114,6 +114,7 @@ int main(){
     unique_ptr<personajes> Jugador1 = PersonajeFactory::make_personajeArmado(enum_personaje,arma_factory);
     
     //jugador2
+    float daño_tt;
     int personaje2 = 0 + rand() % (8-0+1);
     int arma2 = 0 + rand() % (8-0+1);
     arma_factory.erase(arma_factory.begin());
@@ -133,7 +134,8 @@ int main(){
         //si es ataque fuerte
         if(op_ataque ==1){
             if(rand_attack == 2){
-                Jugador2->recibirdaño(Jugador1->ataque(Jugador1->getArma(0)));
+                daño_tt = Jugador1->ataque(Jugador1->getArma(0));
+                Jugador2->recibirdaño(daño_tt);
             }
         }
     }

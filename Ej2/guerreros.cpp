@@ -39,7 +39,7 @@ void guerreros::afinidad_arma(unique_ptr<armas> arma){
     }
 }
 
-int guerreros::ataque(unique_ptr<armas>& arma){
+int guerreros::ataque(armas* arma){
     float daño_TT =0;
     if(arma->getDurabilidad() == 0){
         //arma->setPower(0);
@@ -48,7 +48,7 @@ int guerreros::ataque(unique_ptr<armas>& arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma.get());
+            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma);
             //unique_ptr<armasCombate> arma_combate = make_unique<armasCombate>(dynamic_cast<armasCombate*>(arma.get()));
             //shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
             daño_TT = 10+ arma->getpower() + (arma_combate->getPeso()*0.5); //preg

@@ -21,7 +21,7 @@ class guerreros:public personajes{
         virtual int getEnergia()override;
         virtual void afinidad_arma(unique_ptr<armas> arma)override;
         //virtual void afinidad_enemy(shared_ptr<personajes> enemy)override;
-        virtual int ataque(unique_ptr<armas>& arma)override;
+        virtual int ataque(armas* arma)override;
         virtual void appendArma(unique_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
         virtual bool isDead()override;

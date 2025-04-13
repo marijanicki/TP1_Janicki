@@ -2,7 +2,7 @@
 #include "Iarmas.hpp"
 
 #include "magos.hpp"
-
+#include <iostream>
 using namespace std;
 class armas;
 //preguntar armas como hacer, vector<shared_ptr<armas>> armas
@@ -47,9 +47,9 @@ int magos::ataque(armas* arma){
     else{
         //si el arma es de combate le sumo el peso del arma
         if(arma->get_armaType() == "Combate"){
-            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma.get());
+            armasCombate* arma_combate = dynamic_cast<armasCombate*>(arma);
             //shared_ptr<armasCombate> arma_combate = dynamic_pointer_cast<armasCombate>(arma);
-            daño_TT = 10+ arma->getpower()*(1/3) + (arma_combate->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
+            daño_TT = 10+ arma->getpower()/3 + (arma_combate->getPeso()*0.5); //mi mago no tiene agilidad entonces se le va a dificultar poder usar bien un arma de combate
         }
         else{
             //seria un item magico
@@ -59,6 +59,7 @@ int magos::ataque(armas* arma){
    
     if(getEnergia() < 30){
         daño_TT = daño_TT / 2; //al tener una cantidad muy poca de mana el ataque se vuelve muchisimo menos fuerte
+        cout<<"Cansado"<<endl;
         if(getEnergia() <= 20) {
             setHp(getHp()-1); //al tener poco mano, eso lo agota y le consume un poquito de vida atacar
         }
