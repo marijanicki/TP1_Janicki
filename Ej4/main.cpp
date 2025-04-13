@@ -81,22 +81,45 @@ ARMAS make_enum_arma(int op_arma){
     }
 }
 
+void ataque_jugador1(personajes* jugador1, personajes* jugador2){
+    float daño_tt = jugador1->ataque(jugador1->getArma(0));
+    jugador2->recibirdaño(daño_tt);
+    cout << "El " << jugador1->getName() << " ataca con " << jugador1->getArma(0)->getName() << " y hace "<<daño_tt << " puntos de daño.\n\n"<<endl;
+
+}
+
+void ataque_jugador2(personajes* jugador1, personajes* jugador2){
+    float daño_tt = jugador2->ataque(jugador2->getArma(0));
+    jugador1->recibirdaño(daño_tt);
+    cout << "El " << jugador2->getName() << " ataca con " << jugador2->getArma(0)->getName() << " y hace "<<daño_tt << " puntos de daño.\n\n"<<endl;
+}
 int main(){
     int op_personaje;
     int op_arma;
-    cout<< "Elija el personaje para el jugador 1:"
-        << "\n(1) Hechicero"
-        << "\n(2) Brujo"
-        << "\n(3) Nigromante"
-        << "\n(4) Conjurador"
-        << "\n(5) Caballero"
-        << "\n(6) Paladin"
-        << "\n(7) Mercenario"
-        << "\n(8) Barbaro"
-        << "\n(9) Gladiador"<<endl;
-    cin>>op_personaje;
+    bool valid = true;
+    while(valid){
+            cout<< "Elija el personaje para el jugador 1:"
+                << "\n(1) Hechicero"
+                << "\n(2) Brujo"
+                << "\n(3) Nigromante"
+                << "\n(4) Conjurador"
+                << "\n(5) Caballero"
+                << "\n(6) Paladin"
+                << "\n(7) Mercenario"
+                << "\n(8) Barbaro"
+                << "\n(9) Gladiador"<<endl;
+            cin>>op_personaje;
+            if(0<op_personaje && op_personaje<=9){
+                valid = false;
+            }
+            else{
+                cout << "\nOpción inválida. Intentelo nuevamente."<<endl;
+            }
+    }
 
-    cout << "Elija el arma que desea usar:"
+    valid = true;
+    while (valid){
+        cout << "Elija el arma que desea usar:"
          << "\n(1) Baston"
          << "\n(2) Libro de hechizos"
          << "\n(3) Pocion"
@@ -106,7 +129,15 @@ int main(){
          << "\n(7) Espada"
          << "\n(8)Lanza"
          << "\n(9)Garrote"<<endl; 
-    cin>>op_arma;
+        cin>>op_arma;
+        if(0<op_arma && op_arma<=9){
+            valid = false;
+        }
+        else{
+            cout << "\nOpción inválida. Intentelo nuevamente.\n"<<endl;
+        }
+    }
+    
     PERSONAJES enum_personaje = make_enum_pj(op_personaje);
     ARMAS enum_arma = make_enum_arma(op_arma);
     vector<ARMAS> arma_factory;
@@ -114,7 +145,6 @@ int main(){
     unique_ptr<personajes> Jugador1 = PersonajeFactory::make_personajeArmado(enum_personaje,arma_factory);
     
     //jugador2
-    float daño_tt;
     int personaje2 = 0 + rand() % (8-0+1);
     int arma2 = 0 + rand() % (8-0+1);
     arma_factory.erase(arma_factory.begin());
@@ -123,20 +153,42 @@ int main(){
     int rand_attack;
     int op_ataque;
     while(!Jugador1->isDead() && !Jugador2->isDead()){
-        cout<<"El" <<Jugador1->getName() <<" tiene " << Jugador1->getHp()<<"HP y el" <<Jugador2->getName() <<"tiene "<< Jugador2->getHp()<<"HP"<<endl;
-        cout<<"Elija su ataque: (1) Golpe Fuerte, (2) Golpe Rápido, (3)Defensa y Golpe: ";
+        //cuando el jugador empiece a hacer menos daño despues de varios turnos es porque se esta quedando con poco mana debido al uso del arma, lo cual si su energia es muuy baja se le empieza a quitar 1hp de vida.
+        cout<<"El " <<Jugador1->getName() <<" tiene " << Jugador1->getHp()<<"HP y el " <<Jugador2->getName() <<" tiene "<< Jugador2->getHp()<<"HP"<<endl;
+        cout<<"Elija su ataque: (1) Golpe Fuerte, (2) Golpe Rápido, (3) Defensa y Golpe: ";
         cin>>op_ataque;
         rand_attack = 1 + rand() % (3-1+1);
-        cout<<"ataque"<<rand_attack<<endl;
+        cout<<"ataque "<<rand_attack<<endl;
         if(op_ataque == rand_attack){
             continue;
         }
         //si es ataque fuerte
         if(op_ataque ==1){
             if(rand_attack == 2){
-                daño_tt = Jugador1->ataque(Jugador1->getArma(0));
-                Jugador2->recibirdaño(daño_tt);
+                ataque_jugador1(Jugador1.get(), Jugador2.get());
             }
+            else{
+                ataque_jugador2(Jugador1.get(), Jugador2.get());
+            }
+        }
+        else if(op_ataque == 2){
+            if(rand_attack == 1){
+                ataque_jugador2(Jugador1.get(), Jugador2.get());
+            }
+            else{
+                ataque_jugador1(Jugador1.get(), Jugador2.get());
+            }
+        }
+        else if(op_ataque == 3){
+            if(rand_attack == 1){
+                ataque_jugador1(Jugador1.get(), Jugador2.get());
+            }
+            else{
+                ataque_jugador2(Jugador1.get(), Jugador2.get());
+            }
+        }
+        else{
+            cout<< "Ataque inálido!"<<endl;
         }
     }
 }
