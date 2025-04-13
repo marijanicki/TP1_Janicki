@@ -39,7 +39,7 @@ void magos::afinidad_arma(unique_ptr<armas> arma){
     }
 }
 
-int magos::ataque(unique_ptr<armas>& arma){
+int magos::ataque(armas* arma){
     float daño_TT =0;
     if(arma->getDurabilidad() == 0){
         daño_TT = 10; //si mi arma se encuentra rota debido al uso, solo hace el ataque basico, ya no tiene poder

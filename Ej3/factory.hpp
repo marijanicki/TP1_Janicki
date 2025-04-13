@@ -7,8 +7,8 @@
 
 using namespace std;
 
-enum class PERSONAJES :uint8_t{hechicero, brujo, nigromante, conjurador, caballero, paladin, mercenario, barbaro, gladiador};
-enum class ARMAS : uint8_t{baston, libro, pocion, amuleto, hacha_simple, hacha_doble, espada, lanza, garrote};
+enum class PERSONAJES :uint8_t{hechicero, brujo, nigromante, conjurador, caballero, paladin, mercenario, barbaro, gladiador, INVALID};
+enum class ARMAS : uint8_t{baston, libro, pocion, amuleto, hacha_simple, hacha_doble, espada, lanza, garrote, INVALID};
 
 class PersonajeFactory{
     public:
