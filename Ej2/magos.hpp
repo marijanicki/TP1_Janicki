@@ -40,6 +40,7 @@ class hechicero: public magos{
     public:
         hechicero();
         hechicero(string name);
+        ~hechicero();
     private:
         string name;
         int mana;
@@ -67,6 +68,7 @@ class nigromante: public magos{
     public:
         nigromante();
         nigromante(string name);
+        ~nigromante();
     private:
         string name;
         int mana;

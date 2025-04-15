@@ -20,4 +20,5 @@ class personajes{
         virtual void appendArma(unique_ptr<armas> arma) = 0;
         virtual void recibirdaño(int daño) = 0;
         virtual bool isDead()=0;
+        virtual ~personajes() {};
 };

@@ -85,7 +85,8 @@ void ataque_jugador1(personajes* jugador1, personajes* jugador2){
     float daño_tt = jugador1->ataque(jugador1->getArma(0));
     jugador2->recibirdaño(daño_tt);
     cout << "El " << jugador1->getName() << " ataca con " << jugador1->getArma(0)->getName() << " y hace "<<daño_tt << " puntos de daño.\n\n"<<endl;
-
+    //delete jugador1;
+    //delete jugador2;
 }
 
 void ataque_jugador2(personajes* jugador1, personajes* jugador2){

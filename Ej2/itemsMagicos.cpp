@@ -38,6 +38,8 @@ items_magicos::~items_magicos(){}
 //-------------armas
 baston::baston() : items_magicos("Baston", "Items magicos", 5, 7, 7){}
 baston::baston(string name) : items_magicos(name, "Items magicos", 5, 7, 7){}
+baston::~baston(){};
+
 
 libro::libro() : items_magicos("Libro de hechizos", "Items magicos", 15, 15, 4){}
 libro::libro(string name) : items_magicos(name, "Items magicos", 15, 15, 4){} //revisar numeros

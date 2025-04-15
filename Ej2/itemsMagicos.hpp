@@ -29,6 +29,7 @@ class baston : public items_magicos{
     public:
         baston();
         baston(string name);
+        ~baston();
 };
 
 class libro : public items_magicos{
