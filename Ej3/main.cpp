@@ -14,7 +14,26 @@ using namespace std;
 
 
 int main(){
+    //PRUEBO LOS FACTORY SOLO PERSONAJE Y SOLO ARMA
+    //Elijo al azzar que personaje y que arma voy a hacer
+
     srand(time(NULL));
+    int rand_pj = 0 + rand() % (8-0+1);
+    cout << "El personaje al azar que salio es: " <<rand_pj<<endl; //agrego esto así verifico que el valor del enum y del que hace es el correcto
+    PERSONAJES enum_pj = static_cast<PERSONAJES>(rand_pj);
+    unique_ptr<personajes> my_new_pj = PersonajeFactory::make_personaje(enum_pj);
+    cout<<"Mi personaje es un " << my_new_pj->getName()<<endl;
+
+    //Pruebo el arma 
+    int rand_arma = 0 + rand() % (8-0+1);
+    cout<<"\n\nEl arma al azar que salio es: "<<rand_arma<<endl;
+    ARMAS enum_arma = static_cast<ARMAS>(rand_arma);
+    unique_ptr<armas> my_new_arma = PersonajeFactory::make_arma(enum_arma);
+    cout<<"Mi personaje es un " << my_new_arma->getName()<<endl;
+    
+
+    //Pruebo con una cantidad aleatoria de personajes de cada tipo y con cant aleatoria de armas
+
     int cant_magos = 3 + rand() % (7-3+1) ;
     int cant_guerreros = 3 + rand() % (7-3+1) ;
     cout <<"cant_magos" << cant_magos <<"\ncant guerreros" <<cant_guerreros <<endl;
@@ -38,7 +57,7 @@ int main(){
     for(int i = 0; i < cant_magos; i++){
        cout<< magos_fact[i]->getName()<<endl;
        //cout << magos_fact[i]->getArma(0)->getName(); no tiene arma 
-    }
+    }*/
     /*
     cout << PersonajeFactory::make_personaje(PERSONAJES::hechicero)->getName()<<endl;
     

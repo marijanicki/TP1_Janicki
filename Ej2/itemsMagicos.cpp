@@ -44,10 +44,12 @@ baston::~baston(){};
 libro::libro() : items_magicos("Libro de hechizos", "Items magicos", 15, 15, 4){}
 libro::libro(string name) : items_magicos(name, "Items magicos", 15, 15, 4){} //revisar numeros
 //tienen poca durabilidad porq su ataque es muy alto, en caso tiene ventaja al principio pero si se cansa y pierde su mana es muy debil
+libro::~libro(){}
 
 pocion::pocion() : items_magicos("Pocion", "Items magicos", 20, 10, 5){}
 pocion::pocion(string name) : items_magicos(name, "Items magicos", 20, 10, 5){} //cansa mucho al q la usa
+pocion::~pocion(){}
 
 amuleto::amuleto() : items_magicos("Amuleto", "Items magicos", 8, 10, 8){}
 amuleto::amuleto(string name) : items_magicos(name, "Items magicos", 8, 10, 8){}
-
+amuleto::~amuleto(){}

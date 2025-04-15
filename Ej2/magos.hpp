@@ -20,7 +20,6 @@ class magos:public personajes{
         virtual int getEnergia()override;
         virtual void afinidad_arma(unique_ptr<armas> arma)override;
         
-        //virtual void afinidad_enemy(shared_ptr<personajes> enemy)override;
         virtual int ataque(armas* arma)override;
         virtual void appendArma(unique_ptr<armas> arma)override;
         virtual void recibirdaño(int daño)override;
@@ -40,16 +39,18 @@ class hechicero: public magos{
     public:
         hechicero();
         hechicero(string name);
+        void expelliarmus(); 
         ~hechicero();
+
     private:
-        string name;
-        int mana;
+        float nivel_de_hechiceria;
 };
 
 class conjurador: public magos{
     public:
         conjurador();
         conjurador(string name);
+        ~conjurador();
     private:
         string name;
         int mana;
@@ -59,6 +60,7 @@ class brujo: public magos{
     public:
         brujo();
         brujo(string name);
+        ~brujo();
     private:
         string name;
         int mana;

@@ -39,25 +39,30 @@ class barbaro : public guerreros{
     public: 
         barbaro();
         barbaro(string nombre);
+        ~barbaro();
 };
 
 class paladin : public guerreros{
     public: 
         paladin();
         paladin(string nombre);
+        ~paladin();
 };
 class caballero : public guerreros{
     public: 
         caballero();
         caballero(string nombre);
+        ~caballero();
 };
 class merceneario : public guerreros{
     public: 
         merceneario();
         merceneario(string nombre);
+        ~merceneario();
 };
 class gladiador : public guerreros{
     public: 
         gladiador();
         gladiador(string nombre);
+        ~gladiador();
 };

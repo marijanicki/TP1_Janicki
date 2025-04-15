@@ -89,15 +89,20 @@ guerreros::~guerreros(){}
 //-----------------------guerreros
 barbaro::barbaro() : guerreros("Barbaro", "Guerrero", 100){}
 barbaro::barbaro(string nombre) : guerreros(nombre, "Guerrero", 100){}
+barbaro::~barbaro(){}
 
 paladin::paladin() : guerreros("Paladin", "Guerrero", 70){}
 paladin::paladin(string nombre) : guerreros(nombre, "Guerrero", 70){}
+paladin::~paladin(){}
 
 caballero::caballero() : guerreros("Caballero", "Guerreros", 60){}
 caballero::caballero(string nombre) : guerreros(nombre, "Guerreros", 60){}
+caballero::~caballero(){}
 
 merceneario::merceneario() : guerreros("Mercenario", "Guerrero", 90){}
 merceneario::merceneario(string nombre) : guerreros(nombre, "Guerrero", 90){}
+merceneario::~merceneario(){}
 
 gladiador::gladiador() : guerreros("Gladiador", "Guerrero", 110){}
 gladiador::gladiador(string nombre) : guerreros(nombre, "Guerrero", 110){}
+gladiador::~gladiador(){}

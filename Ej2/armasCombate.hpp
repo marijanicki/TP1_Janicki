@@ -28,25 +28,30 @@ class hacha_simple : public armasCombate{
     public:
         hacha_simple(); 
         hacha_simple(string name);
+        ~hacha_simple();
 };
 
 class hacha_doble : public armasCombate{
     public: 
         hacha_doble();
         hacha_doble(string name);
+        ~hacha_doble();
 };
 class espada : public armasCombate{
     public: 
         espada();
         espada(string name);
+        ~espada();
 };
 class lanza : public armasCombate{
     public: 
         lanza();
         lanza(string name);
+        ~lanza();
 };
 class garrote : public armasCombate{
     public: 
         garrote();
         garrote(string name);
+        ~garrote();
 };

@@ -36,14 +36,17 @@ class libro : public items_magicos{
     public:
         libro();
         libro(string name);
+        ~libro();
 };
 class pocion : public items_magicos{
     public:
         pocion();
         pocion(string name);
+        ~pocion();
 };
 class amuleto : public items_magicos{
     public:
         amuleto();
         amuleto(string name);
+        ~amuleto();
 };

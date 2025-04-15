@@ -90,9 +90,11 @@ hechicero::~hechicero(){};
 
 conjurador::conjurador() : magos("Conjurador", "magos", 80){};
 conjurador::conjurador(string name) : magos(name, "magos", 80){};
+conjurador::~conjurador(){}
 
 brujo::brujo() : magos("Brujo", "magos", 60){};
 brujo::brujo(string name) : magos(name, "magos", 60){};
+brujo::~brujo(){}
 
 nigromante::nigromante() : magos("Nigromante", "magos", 120){};
 nigromante::nigromante(string name) : magos(name, "magos", 120){};
