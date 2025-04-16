@@ -25,6 +25,7 @@ class magos:public personajes{
         virtual void recibirdaño(int daño)override;
         virtual bool isDead()override;
         virtual armas* getArma(size_t pos)override;
+        virtual size_t getSizeArma()override;
         virtual  ~magos();
     protected:
         string name;
@@ -50,6 +51,7 @@ class conjurador: public magos{
     public:
         conjurador();
         conjurador(string name);
+        void portal_menor();
         ~conjurador();
     private:
         string name;
@@ -60,16 +62,17 @@ class brujo: public magos{
     public:
         brujo();
         brujo(string name);
+        void pacto_oscuro();
         ~brujo();
     private:
-        string name;
-        int mana;
 };
 
 class nigromante: public magos{
     public:
         nigromante();
         nigromante(string name);
+        void robar_vida(unique_ptr<personajes> enemy);
+        void resucitar();
         ~nigromante();
     private:
         string name;

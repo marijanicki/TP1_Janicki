@@ -2,7 +2,7 @@
 #include "Iarmas.hpp"
 #include <string>
 #include <memory>
-
+#include <iostream>
 using namespace std;
 
 class personajes{
@@ -12,6 +12,7 @@ class personajes{
         virtual void setHp(int new_hp) =0;
         virtual int getHp() = 0;
         virtual armas* getArma(size_t pos)=0;
+        virtual size_t getSizeArma()=0;
         virtual void setEnergia(int new_cant_energ)=0; 
         virtual int getEnergia() = 0;
         virtual void afinidad_arma(unique_ptr<armas> arma) = 0;

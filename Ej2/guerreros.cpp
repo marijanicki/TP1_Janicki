@@ -84,24 +84,50 @@ bool guerreros::isDead(){
 armas* guerreros::getArma(size_t pos){
     return armas_pj[pos].get();
 }
+
+size_t guerreros::getSizeArma(){
+    return armas_pj.size();
+}
+
 guerreros::~guerreros(){}
 
 //-----------------------guerreros
 barbaro::barbaro() : guerreros("Barbaro", "Guerrero", 100){}
 barbaro::barbaro(string nombre) : guerreros(nombre, "Guerrero", 100){}
+void barbaro::derriba_montañas(){
+    setEnergia(getEnergia()*2); //duplica tu energia
+}
 barbaro::~barbaro(){}
 
 paladin::paladin() : guerreros("Paladin", "Guerrero", 70){}
 paladin::paladin(string nombre) : guerreros(nombre, "Guerrero", 70){}
+void paladin::curacion_divina(){
+    setHp(getHp()*(1/4)); //te cura un poco tu vida
+}
 paladin::~paladin(){}
 
 caballero::caballero() : guerreros("Caballero", "Guerreros", 60){}
 caballero::caballero(string nombre) : guerreros(nombre, "Guerreros", 60){}
+void caballero::oscuridad_total(){
+    cout<<"La oscuridad te envuelve apuestas todo o nada. Triplicas tus habilidades pero con el riesgo de que si fallas mueres"<<endl;
+    setEnergia(getEnergia()*3);
+}
 caballero::~caballero(){}
 
-merceneario::merceneario() : guerreros("Mercenario", "Guerrero", 90){}
-merceneario::merceneario(string nombre) : guerreros(nombre, "Guerrero", 90){}
-merceneario::~merceneario(){}
+mercenario::mercenario() : guerreros("Mercenario", "Guerrero", 90){}
+mercenario::mercenario(string nombre) : guerreros(nombre, "Guerrero", 90){}
+void mercenario::setMonedas(float monedas){
+    this->monedas = monedas;
+}
+float mercenario::getMonedas(){
+    return monedas;
+}
+void mercenario::intercambio(int cant_cambio){
+    cout<<"Sacrificas una parte de tu poder adquisito para sobrevivir y buscar más riquezas"<<endl;
+    setHp(getHp()+cant_cambio);
+    setMonedas(getMonedas()-cant_cambio);
+}
+mercenario::~mercenario(){}
 
 gladiador::gladiador() : guerreros("Gladiador", "Guerrero", 110){}
 gladiador::gladiador(string nombre) : guerreros(nombre, "Guerrero", 110){}

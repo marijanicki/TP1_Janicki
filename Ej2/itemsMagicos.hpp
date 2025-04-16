@@ -29,6 +29,7 @@ class baston : public items_magicos{
     public:
         baston();
         baston(string name);
+        void baston_temporal();
         ~baston();
 };
 
@@ -36,17 +37,20 @@ class libro : public items_magicos{
     public:
         libro();
         libro(string name);
+        void revelacion();
         ~libro();
 };
 class pocion : public items_magicos{
     public:
         pocion();
         pocion(string name);
+        void frost();
         ~pocion();
 };
 class amuleto : public items_magicos{
     public:
         amuleto();
         amuleto(string name);
+        void amuleto_del_vacio();
         ~amuleto();
 };

@@ -82,20 +82,43 @@ bool magos::isDead(){
 armas* magos::getArma(size_t pos){
     return armas_pj[pos].get();
 }
+
+size_t magos::getSizeArma(){
+    return armas_pj.size();
+}
+
 magos::~magos(){}
 
 hechicero::hechicero() :magos("Hechicero", "magos", 100){};
 hechicero::hechicero(string name) : magos(name, "magos", 100){};
+void hechicero::expelliarmus(){
+    cout<<"Expelliarmus, desarmaste a tu enemigo por una ronda."<<endl;
+}
 hechicero::~hechicero(){};
 
 conjurador::conjurador() : magos("Conjurador", "magos", 80){};
 conjurador::conjurador(string name) : magos(name, "magos", 80){};
+void conjurador::portal_menor(){
+    cout<<"Abres un portal menor que te ayuda a escapar del ataque"<<endl;
+}
 conjurador::~conjurador(){}
 
 brujo::brujo() : magos("Brujo", "magos", 60){};
 brujo::brujo(string name) : magos(name, "magos", 60){};
+void brujo::pacto_oscuro(){
+    setHp(getHp()/2);
+    cout<<"Sacrificas la mitad de tu vida pero duplica su daño de manera temporal"<<endl;
+}
 brujo::~brujo(){}
 
 nigromante::nigromante() : magos("Nigromante", "magos", 120){};
 nigromante::nigromante(string name) : magos(name, "magos", 120){};
+void nigromante::resucitar(){
+    cout<<"Llamas a la pelea por una ronda a todos los enemigos que venciste en tu favor. CUIDADO! Consume muy rápidamente tu maná"<<endl;
+}
+void nigromante::robar_vida(unique_ptr<personajes> enemy){
+    setHp(enemy->getHp()/4); 
+    //solo se puede utilizar una vez. Se debería implementar en una dinámica de juego real
+    cout<<"Te robas un 1/4 del alma de tu rival.\nAgotaste todas las posibilidades de utilizar esta acción."<<endl;
+}
 nigromante::~nigromante(){};

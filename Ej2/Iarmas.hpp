@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -11,7 +12,6 @@ class armas{
         virtual void setDurabilidad() =0;
         virtual int getDurabilidad() = 0;
         virtual int getDesgaste()=0;
-        virtual void setPower(int poder_magico)=0; 
-        //virtual float getPeso()=0;    
+        virtual void setPower(int poder_magico)=0;   
         virtual ~armas(){};
 };
